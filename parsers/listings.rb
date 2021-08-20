@@ -1,6 +1,6 @@
 nokogiri = Nokogiri.HTML(content)
 
-products = nokogiri.css('h2.a-size-mini a-spacing-none a-color-base s-line-clamp-4')
+products = nokogiri.css('div.a-column div.a-span4')
 products.each do |product|
     a_element = product.at_css('a.a-link-normal')
     if a_element
