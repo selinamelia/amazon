@@ -25,11 +25,11 @@ else
 end
 
 #extract number of reviews and rating
-rating-review = nokogiri.at_css('div.a-fixed-left-grid-col a-col-left')
-if rating-review
-    product['reviews_count'] = nokogiri.at_css('span.a-size-base a-color-secondary').strip.split(' ').first
-    product['rating'] = nokogiri.at_css('a-size-medium a-color-base').text
-end
+# rating-review = nokogiri.at_css('div.a-fixed-left-grid-col a-col-left')
+# if rating-review
+#     product['reviews_count'] = nokogiri.at_css('span.a-size-base a-color-secondary').strip.split(' ').first
+#     product['rating'] = nokogiri.at_css('a-size-medium a-color-base').text
+# end
 
 #extract price
 price_node = nokogiri.at_css('#price_inside_buybox', '#priceblock_ourprice', '#priceblock_dealprice', '.offer-price')
