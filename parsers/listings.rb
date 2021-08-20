@@ -1,6 +1,6 @@
 nokogiri = Nokogiri.HTML(content)
 
-products = nokogiri.css('div.a-column div.a-span4')
+products = nokogiri.css('div.sg-col-inner')
 products.each do |product|
     a_element = product.at_css('a.a-link-normal')
     if a_element
