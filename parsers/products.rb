@@ -24,12 +24,15 @@ else
     product['author'] = nokogiri.css('a.contributorNameID').text.strip
 end
 
-#extract number of reviews and rating
-# rating-review = nokogiri.at_css('div.a-fixed-left-grid-col a-col-left')
-# if rating-review
-#     product['reviews_count'] = nokogiri.at_css('span.a-size-base a-color-secondary').strip.split(' ').first
-#     product['rating'] = nokogiri.at_css('a-size-medium a-color-base').text
-# end
+#extract number of reviews
+reviews_node = nokogiri.at_css('span#acrCustomerReviewText')
+reviews_count = reviews_node ? reviews_node.text.strip.split(' ').first.gsub(',','') : nil
+product['reviews_count'] = reviews_count =~ /^[0-9]*$/ ? reviews_count.to_i : 0
+
+#extract rating
+rating_node = nokogiri.at_css('#averageCustomerReviews span.a-icon-alt')
+stars_num = rating_node ? rating_node.text.strip.split(' ').first : nil
+product['rating'] = stars_num =~ /^[0-9.]*$/ ? stars_num.to_f : nil
 
 #extract price
 price_node = nokogiri.at_css('#price_inside_buybox', '#priceblock_ourprice', '#priceblock_dealprice', '.offer-price')
