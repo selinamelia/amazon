@@ -1,5 +1,5 @@
 pages << {
-    url: "https://www.amazon.com/s?k=LED+%26+LCD+TVs&i=electronics&rh=n%3A6459737011&qid=1629141285&ref=sr_pg_1'",
+    url: 'https://www.amazon.com/s?k=LED+%26+LCD+TVs&i=electronics&rh=n%3A6459737011&qid=1629141285&ref=sr_pg_1',    
     page_type: "listings",
     method: "GET",
     force_fetch: true,
@@ -10,7 +10,7 @@ pages << {
     }
 }
 pages << {
-    url: "https://www.amazon.com/s?i=electronics&rh=n%3A6463520011&fs=true&qid=1629487412&ref=sr_pg_1",
+    url: 'https://www.amazon.com/s?k=OLED+TVs&rh=n%3A6463520011&ref=nb_sb_noss',    
     page_type: "listings",
     method: "GET",
     force_fetch: true,
