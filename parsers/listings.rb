@@ -20,16 +20,14 @@ products.each do |product|
     end
 end
 
-pagination_links = nokogiri.at_css('.a-last > a')
+pagination_links = nokogiri.at_css('ul.a-pagination > li')
 if pagination_links
 	next_page = "https://www.amazon.com#{pagination_links['href']}"
 	if next_page =~ /\Ahttps?:\/\//i
 		pages << {
 			url: next_page,
-			page_type: 'search',
-#			force_fetch: true,
-#			method: "GET",
-#			headers: {"User-Agent" => "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"},
+			page_type: 'listings',
+			force_fetch: true,
 			vars: {
 				category: page['vars']['category']
 			}
