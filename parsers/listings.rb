@@ -32,7 +32,7 @@ if current_page < 11
 		next_page = "https://www.amazon.com#{pagination_links['href']}"
 		pages << {
 			url: next_page,
-			page_type: 'search',
+			page_type: 'listings',
 			force_fetch: true,
 			vars: {
 				category: page['vars']['category']
@@ -44,7 +44,7 @@ if current_page < 11
 			next_page = "https://www.amazon.com#{pagination_links['href']}"
 			pages << {
 				url: next_page,
-				page_type: 'search',
+				page_type: 'listings',
 				force_fetch: true,
 				vars: {
 					category: page['vars']['category']
