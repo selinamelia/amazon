@@ -2,9 +2,9 @@ nokogiri = Nokogiri.HTML(content)
 
 products = nokogiri.css('h2.a-size-mini')
 products.each do |product|
-    a_element = product.at_css('a.a-link-normal').attr('href').text
+    a_element = product.at_css('a.a-link-normal')
     if a_element
-        url = URI.join('https://www.amazon.com', a_element)
+        url = URI.join('https://www.amazon.com', a_element['href']).to_s
         if url =~ /\Ahttps?:\/\//i
             pages << {
                 url: url,
